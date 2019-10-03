@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ideas Should match the snapshot with the data passed in correctly 1`] = `
+<Fragment>
+  <h2>
+    Ideas Component
+  </h2>
+  <section
+    className="ideas"
+  >
+    <Card
+      description="BANANAS"
+      id={4}
+      key="4"
+      removeIdea={[MockFunction]}
+      title="Bananas"
+    />
+    <Card
+      description="ORANGE"
+      id={5}
+      key="5"
+      removeIdea={[MockFunction]}
+      title="Orange"
+    />
+  </section>
+</Fragment>
+`;
