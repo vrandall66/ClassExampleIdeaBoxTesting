@@ -15,14 +15,24 @@ describe("Form", () => {
   });
 
   it('should update state through handleChange method', () => {
-    // Setup
     const titleEvent = { target: { name: 'title', value: 'herp' } }
     const descriptionEvent = { target: { name: 'description', value: 'derp' } }
-    // Execution
+
     wrapper.instance().handleChange(titleEvent)
     wrapper.instance().handleChange(descriptionEvent)
-    // Expectations
+
     expect(wrapper.state('title')).toEqual(titleEvent.target.value)
     expect(wrapper.state('description')).toEqual(descriptionEvent.target.value);
+  })
+
+  it('should reset the inputs upon submitting a new idea', () => {
+    const currentState = { title: 'herp', description: 'derp' };
+    const clearedState = { title: '', description: '' };
+
+    wrapper.setState(currentState);
+    expect(wrapper.state()).toEqual(currentState);
+  
+    wrapper.instance().resetInputs();
+    expect(wrapper.state()).toEqual(clearedState);
   })
 });
