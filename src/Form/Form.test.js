@@ -25,6 +25,14 @@ describe("Form", () => {
     expect(wrapper.state('description')).toEqual(descriptionEvent.target.value);
   })
 
+  it('should call both addIdea and resetInputs when submitNewIdea is called', () => {
+    const mockEvent = { preventDefault: jest.fn() };
+    wrapper.instance().resetInputs = jest.fn();
+    wrapper.instance().submitNewIdea(mockEvent);
+    expect(mockAddIdea).toHaveBeenCalled();
+    expect(wrapper.instance().resetInputs).toHaveBeenCalled();
+  })
+
   it('should reset the inputs upon submitting a new idea', () => {
     const currentState = { title: 'herp', description: 'derp' };
     const clearedState = { title: '', description: '' };
